@@ -23,6 +23,10 @@ class PostsController < ApplicationController
 	  redirect_to post_path(@post)
 	end
 
+	def edit
+		@post = Post.find(params[:id])
+	end
+
 	private
 
 	# We pass the permitted fields in as *args;
@@ -33,8 +37,6 @@ class PostsController < ApplicationController
 
 	def post_params(*args)
 	  params.require(:post).permit(*args)
-
-	def edit
-	  @post = Post.find(params[:id])
 	end
+
 end
